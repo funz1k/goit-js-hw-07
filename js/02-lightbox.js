@@ -17,7 +17,8 @@ const markup = galleryItems.map(({ preview, original, description }) => {
 
 galleryList.insertAdjacentHTML('afterbegin', markup);
 
-let lightbox = new SimpleLightbox('.gallery a', { overlayOpacity: 0.8, captionsData: 'alt', captionDelay: 250, showCounter: false });
+new SimpleLightbox('.gallery a', { overlayOpacity: 0.8, captionsData: 'alt', captionDelay: 250, showCounter: false });
 
-lightbox.on('shown.simplelightbox', (e) => {
-})
+// lightbox.on('shown.simplelightbox', (e) => {
+//     const backgroundOverlay = document.querySelector('.sl-overlay').style.backgroundColor = '#212122'
+// })

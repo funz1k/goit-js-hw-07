@@ -20,6 +20,7 @@ const markup = galleryItems.map(({ preview, original, description }) => {
 
 galleryList.insertAdjacentHTML('afterbegin', markup);
 
+
 galleryList.addEventListener("click", onModalOpenImg);
 
 
@@ -37,13 +38,16 @@ function createModalWindow(url) {
     const instance = basicLightbox.create(`
     <img src="${url}" width="800" height="600">
 `)
-    const onModalClose = ((event) => {
-        if (event.code === 'Escape') {
-            instance.close()
-        }
-    })
     instance.show()
+
     window.addEventListener('keydown', onModalClose);
 
-}
+    function onModalClose(event) {
+        console.log(event);
+        if (event.code === 'Escape') {
+            instance.close()
+            window.removeEventListener('keydown', onModalClose);
+        }
+    }
 
+}
